@@ -4,22 +4,14 @@ import "./App.css";
 
 function App() {
   const [toggle, setToggle] = useState(true);
-  const handleHide = () => {
-    setToggle(false);
-  };
-  const handleShow = () => {
-    setToggle(true);
+  const handleToggle = () => {
+    setToggle(!toggle);
   };
 
   return (
     <div className="App">
       <h1 style={{ height: "3rem" }}>{toggle ? "hello" : null}</h1>
-      <button onClick={handleHide}>
-        Hide
-      </button>
-      <button onClick={handleShow}>
-        Show
-      </button>
+      <button onClick={handleToggle}>Toggle</button>
     </div>
   );
 }
