@@ -1,35 +1,28 @@
 import { useState } from "react";
+import React from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
-function App() {
-  const [name, setName] = useState("");
-  const [option, setOption] = useState("");
-  const [checked, setChecked] = useState(false);
+class App extends React.Component {
+  constructor() {
+    super();
 
-  console.log([name, option, checked]);
+    this.state = {
+      count: 1,
+    };
+  }
 
-  return (
-    <div className="App">
-      <h2>Please Fill the Form Below</h2>
-      <input type="text" onChange={(e) => setName(e.target.value)} />
-      <br />
-      <br />
-      <select onChange={(e) => setOption(e.target.value)}>
-        <option value="">Select Option</option>
-        <option value="">hello</option>
-        <option value="">mellow</option>
-        <option value="">fellow</option>
-      </select>
-      <br />
-      <br />
-      <input type="checkbox" onChange={(e) => setChecked(e.target.checked)} />
-      <span>Terms and Conditions</span>
-      <br />
-      <br />
-      <button type="submit">Submit</button>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <h2>React Class Component</h2>
+        <h3>count: {this.state.count}</h3>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Count !
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
